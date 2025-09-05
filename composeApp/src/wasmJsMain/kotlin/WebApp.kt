@@ -7,6 +7,6 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 @Composable
 fun WebApp() {
     MaterialTheme {
-        FullPageScroller()
+        RoundedCardPager()
     }
 }

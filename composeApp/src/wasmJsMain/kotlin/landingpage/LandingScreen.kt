@@ -1,59 +1,56 @@
-import androidx.compose.animation.core.tween
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.VerticalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
-import kotlinx.browser.window
-import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun FullPageScroller() {
+fun RoundedCardPager() {
     val colors = listOf(
         Color.Red, Color.Green, Color.Blue,
         Color.Cyan, Color.Magenta, Color.Yellow, Color.Gray
     )
 
-    val viewportHeightPx = window.innerHeight
-    val viewportHeightDp = viewportHeightPx.dp
+    val pagerState = rememberPagerState(pageCount = { colors.size })
 
-    val listState = rememberLazyListState()
-    val scope = rememberCoroutineScope()
-
-    // Detect when scrolling stops, then snap
-    LaunchedEffect(listState.isScrollInProgress) {
-        if (!listState.isScrollInProgress) {
-            val firstVisible = listState.firstVisibleItemIndex
-            val offset = listState.firstVisibleItemScrollOffset
-
-            val targetIndex = if (offset > viewportHeightPx / 2) {
-                firstVisible + 1
-            } else {
-                firstVisible
-            }
-
-            scope.launch {
-                listState.animateScrollToItem(targetIndex)
-            }
-        }
-    }
-
-    LazyColumn(
-        state = listState,
+    VerticalPager(
+        state = pagerState,
         modifier = Modifier.fillMaxSize()
-    ) {
-        itemsIndexed(colors) { _, color ->
+    ) { page ->
+
+        val pageOffset = (
+                (pagerState.currentPage - page) + pagerState.currentPageOffsetFraction
+                ).absoluteValue
+
+        Card(
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer {
+                    // 🔥 Animations
+                    val scale = 1f - pageOffset * 0.2f
+                    scaleX = scale
+                    scaleY = scale
+                    alpha = 1f - pageOffset * 0.4f
+                    rotationZ = pageOffset * 15f
+                },
+            shape = RoundedCornerShape(32.dp), // ✅ rounded corners
+            elevation = 8.dp // ✅ shadow
+        ) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .height(viewportHeightDp)
-                    .background(color)
+                    .background(colors[page])
             )
         }
     }

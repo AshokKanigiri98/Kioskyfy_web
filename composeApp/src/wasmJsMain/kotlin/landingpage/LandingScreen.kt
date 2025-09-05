@@ -1,5 +1,6 @@
 package landingpage
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -25,12 +26,16 @@ fun FullPageScroller() {
         modifier = Modifier.fillMaxSize()
     ) {
         itemsIndexed(colors) { index, color ->
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(viewportHeightDp)
-                    .background(color)
+            AnimatedVisibility(
+             true
             ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(viewportHeightDp)
+                        .background(color)
+                ) {
+                }
             }
         }
     }

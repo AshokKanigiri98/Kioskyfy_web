@@ -3,6 +3,8 @@ package utils
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 
 @Composable
@@ -12,10 +14,15 @@ fun WebPager(
 ) {
     val pagerState = rememberPagerState(pageCount = { pages.size })
 
-    VerticalPager(
-        state = pagerState,
-        modifier = modifier
-    ) { page ->
-        pages.getOrNull(page)?.invoke()
+    CompositionLocalProvider {
+        VerticalPager(
+            state = pagerState,
+            modifier = modifier
+        ) { page ->
+            // Keep each composable stable with remember
+            key(page) {
+                pages[page].invoke()
+            }
+        }
     }
 }

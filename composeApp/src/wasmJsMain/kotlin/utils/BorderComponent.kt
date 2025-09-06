@@ -10,10 +10,10 @@ import androidx.compose.ui.unit.dp
 
 
 fun Modifier.addBorder(
-    color: Color = Color.Gray,
+    color: Color = Color.DarkGray,
     width: Dp = 1.dp,
     cornerRadius: Dp = 8.dp
-): Modifier = this.padding(5.dp).then(
+): Modifier = this.then(
     border(
         width = width,
         color = color,

@@ -117,16 +117,15 @@ private fun BodyItem(
     title: String,
     description: String,
 ) {
-    val resource = remember { backgroundImage }
     Box(
         modifier = Modifier
-            .fillMaxSize()
+            .size(height = 350.dp, width = 500.dp)
             .addBorder(color = Color.DarkGray)
 
     ) {
         Image(
-            modifier = Modifier.size(height = 350.dp, width = 500.dp).alpha(0.25f),
-            painter = painterResource(resource),
+            modifier = Modifier.alpha(0.25f),
+            painter = painterResource(backgroundImage),
             contentDescription = "Kiosk Retro",
             contentScale = ContentScale.Crop
         )

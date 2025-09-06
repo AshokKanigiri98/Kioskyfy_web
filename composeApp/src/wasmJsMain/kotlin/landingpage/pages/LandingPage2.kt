@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -116,6 +117,7 @@ private fun BodyItem(
     title: String,
     description: String,
 ) {
+    val resource = remember { backgroundImage }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -123,8 +125,8 @@ private fun BodyItem(
 
     ) {
         Image(
-            modifier = Modifier.size(600.dp, 700.dp).alpha(0.25f),
-            painter = painterResource(backgroundImage),
+            modifier = Modifier.size(height = 400.dp, width = 500.dp).alpha(0.25f),
+            painter = painterResource(resource),
             contentDescription = "Kiosk Retro",
             contentScale = ContentScale.Crop
         )

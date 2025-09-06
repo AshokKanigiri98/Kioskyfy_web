@@ -125,7 +125,7 @@ private fun BodyItem(
 
     ) {
         Image(
-            modifier = Modifier.size(height = 400.dp, width = 500.dp).alpha(0.25f),
+            modifier = Modifier.size(height = 350.dp, width = 500.dp).alpha(0.25f),
             painter = painterResource(resource),
             contentDescription = "Kiosk Retro",
             contentScale = ContentScale.Crop

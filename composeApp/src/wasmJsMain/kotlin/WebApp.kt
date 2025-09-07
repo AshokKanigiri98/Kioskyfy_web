@@ -8,6 +8,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun WebApp() {
+
     MaterialTheme {
         LandingScreen()
     }

@@ -1,13 +1,20 @@
 package utils
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 
+@Composable
 fun getHeight(): Dp {
-    val width = window.innerWidth.dp
-    if (width < 700.dp) {
-        return 350.dp
+    val density = LocalDensity.current
+    val width = with(density) { window.innerWidth.toDp() }
+    val height = with(density) { window.innerHeight.toDp() }
+
+    return if (width < 800.dp) {
+        350.dp
+    } else {
+        height
     }
-    return window.innerHeight.dp
 }

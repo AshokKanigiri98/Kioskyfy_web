@@ -17,7 +17,8 @@ fun WebPager(
     CompositionLocalProvider {
         VerticalPager(
             state = pagerState,
-            modifier = modifier
+            modifier = modifier,
+            beyondViewportPageCount = 1
         ) { page ->
             // Keep each composable stable with remember
             key(page) {

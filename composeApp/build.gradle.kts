@@ -43,6 +43,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.koin.android)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -62,6 +63,11 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2") // cross-platform
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.composeVM)
+            implementation(libs.androidx.lifecycle.viewmodel)
+
 
         }
     }

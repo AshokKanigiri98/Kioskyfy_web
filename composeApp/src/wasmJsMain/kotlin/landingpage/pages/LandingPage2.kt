@@ -9,15 +9,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.Colors
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import utils.ImageComponent
+import utils.PageTitleComponent
 import utils.addBorder
 
 @Composable
@@ -35,15 +40,7 @@ internal fun LandingPage2() {
 
 @Composable
 private fun HeaderComponent() {
-    Text(
-        text = "Our Products",
-        color = Color.White,
-        fontSize = 30.sp,
-        modifier = Modifier
-            .cinematicAnimation(500)
-            .addBorder()
-            .padding(vertical = 5.dp, horizontal = 15.dp)
-    )
+    PageTitleComponent("Our Products & Services")
 }
 
 @Composable

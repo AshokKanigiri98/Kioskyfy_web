@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import utils.ImageComponent
+import utils.PageTitleComponent
 import utils.addBorder
 
 @Composable
@@ -34,11 +35,7 @@ internal fun LandingPage3() {
 
 @Composable
 private fun HeaderComponent() {
-   Text(text = "Contact Us",
-       color = Color.White,
-       fontSize = 30.sp,
-       modifier = Modifier.cinematicAnimation(500).addBorder().padding(horizontal = 25.dp, vertical = 5.dp)
-   )
+    PageTitleComponent("Contact US")
 }
 
 @Composable

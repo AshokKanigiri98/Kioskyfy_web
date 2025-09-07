@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import animations.cinematicAnimation
 import compose_example.composeapp.generated.resources.Res
 import compose_example.composeapp.generated.resources.logo_black
 import org.jetbrains.compose.resources.painterResource
@@ -39,7 +40,9 @@ private fun HeaderComponent() {
     Image(
         painterResource(Res.drawable.logo_black),
         contentDescription = "Kotlin Logo",
-        modifier = Modifier.size(height = 100.dp, width = 300.dp)
+        modifier = Modifier
+            .size(height = 100.dp, width = 300.dp)
+            .cinematicAnimation(1800)
     )
 }
 
@@ -53,7 +56,11 @@ private fun BodyComponent(modifier: Modifier) {
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
 
-            ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.2f)
+            ImageComponent(
+                drawablePath = "drawable/kiosk_retro.webp",
+                alpha = 0.2f,
+                modifier = Modifier.cinematicAnimation(600)
+            )
 
             Box(
                 modifier = Modifier
@@ -68,13 +75,15 @@ private fun BodyComponent(modifier: Modifier) {
                     Text(
                         "From storefront boards to interactive kiosks",
                         color = Color.White,
-                        fontSize = 26.sp
+                        fontSize = 26.sp,
+                        modifier = Modifier.cinematicAnimation(1000)
                     )
 
                     Text(
                         text = "We transform your business journey into a seamless digital experience",
                         color = Color.White,
-                        fontSize = 16.sp
+                        fontSize = 16.sp,
+                        modifier = Modifier.cinematicAnimation(1500)
                     )
                 }
             }

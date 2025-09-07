@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import animations.cinematicAnimation
 import utils.ImageComponent
 import utils.addBorder
 
@@ -36,7 +37,7 @@ private fun HeaderComponent() {
    Text(text = "Contact Us",
        color = Color.White,
        fontSize = 30.sp,
-       modifier = Modifier.addBorder().padding(horizontal = 25.dp, vertical = 5.dp)
+       modifier = Modifier.cinematicAnimation(500).addBorder().padding(horizontal = 25.dp, vertical = 5.dp)
    )
 }
 
@@ -48,7 +49,7 @@ private fun BodyComponent(modifier: Modifier) {
         elevation = 15.dp,
         color = Color.Black
     ) {
-        ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.2f)
+        ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.2f, modifier = Modifier.cinematicAnimation(600))
 
             Box(
                 modifier = Modifier
@@ -63,13 +64,15 @@ private fun BodyComponent(modifier: Modifier) {
                     Text(
                         "Loading ...",
                         color = Color.White,
-                        fontSize = 28.sp
+                        fontSize = 28.sp,
+                        modifier = Modifier.cinematicAnimation(1000)
                     )
 
                     Text(
                         text = "Our new website is on the way — we’ll be live soon!",
                         color = Color.White,
-                        fontSize = 16.sp
+                        fontSize = 16.sp,
+                        modifier = Modifier.cinematicAnimation(1500)
                     )
                 }
             }

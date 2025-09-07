@@ -53,7 +53,7 @@ private fun BodyComponent(modifier: Modifier) {
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
 
-            ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.3f)
+            ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.2f)
 
             Box(
                 modifier = Modifier

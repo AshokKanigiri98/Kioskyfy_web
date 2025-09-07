@@ -48,7 +48,7 @@ private fun BodyComponent(modifier: Modifier) {
         elevation = 15.dp,
         color = Color.Black
     ) {
-        ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.25f)
+        ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.2f)
 
             Box(
                 modifier = Modifier

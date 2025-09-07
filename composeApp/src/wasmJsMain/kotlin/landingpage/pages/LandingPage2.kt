@@ -124,7 +124,7 @@ private fun BodyItem(
             .addBorder(color = Color.DarkGray)
 
     ) {
-        ImageComponent(drawablePath = drawablePath, alpha = 0.25f)
+        ImageComponent(drawablePath = drawablePath, alpha = 0.2f)
 
         Column(
             horizontalAlignment = Alignment.Start,

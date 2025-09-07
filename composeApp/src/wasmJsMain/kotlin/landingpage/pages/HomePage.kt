@@ -30,6 +30,7 @@ import utils.getHeight
 internal fun HomePage(homePage: HomePage) {
     Column(
         modifier = Modifier.background(color = Color.Black)
+            .size(height = getHeight(), width = window.innerWidth.dp)
             .padding(10.dp)
             .addBorder()
             .padding(10.dp),
@@ -37,7 +38,7 @@ internal fun HomePage(homePage: HomePage) {
     ) {
         HeaderComponent(logo = homePage.logo)
         BodyComponent(
-            modifier = Modifier.size(height = getHeight(), width = window.innerWidth.dp),
+            modifier = Modifier,
             backgroundImage = homePage.imageRes,
             title = homePage.title,
             description = homePage.description

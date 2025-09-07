@@ -34,6 +34,11 @@ private fun LandingScreenComponent(state: LandingPageUiState) {
         item {
             HomePage(homePage = state.homePage)
         }
+
+        item {
+            Spacer(modifier = Modifier.height(20.dp))
+        }
+
         item {
             HeaderComponent(modifier = Modifier.background(color = Color.Black))
         }

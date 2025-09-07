@@ -21,13 +21,15 @@ import domain.models.ContactUsPage
 import kotlinx.browser.window
 import utils.ImageComponent
 import utils.PageTitleComponent
+import utils.addBorder
+import utils.getHeight
 
 @Composable
 internal fun ContactUsScreen(contactUsPage: ContactUsPage) {
     Column(
         modifier = Modifier.background(color = Color.Black)
-            .size(height = window.innerHeight.dp, width = window.innerWidth.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp),
+            .size(height = getHeight(), width = window.innerWidth.dp),
+        verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         HeaderComponent()
@@ -42,7 +44,7 @@ internal fun ContactUsScreen(contactUsPage: ContactUsPage) {
 
 @Composable
 private fun HeaderComponent() {
-    PageTitleComponent("Contact US")
+    PageTitleComponent("Contact us")
 }
 
 @Composable
@@ -52,7 +54,10 @@ private fun BodyComponent(
     title: String,
     description: String,
 ) {
-    Box(modifier = modifier.background(color = Color.Black), contentAlignment = Alignment.Center) {
+    Box(
+        modifier = modifier.background(color = Color.Black).padding(10.dp).addBorder(),
+        contentAlignment = Alignment.Center
+    ) {
 
         ImageComponent(
             drawablePath = backgroundRes,
@@ -62,7 +67,7 @@ private fun BodyComponent(
 
         Box(contentAlignment = Alignment.Center) {
             Column(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxSize()
                     .padding(16.dp),
                 verticalArrangement = Arrangement.Center, // centers vertically

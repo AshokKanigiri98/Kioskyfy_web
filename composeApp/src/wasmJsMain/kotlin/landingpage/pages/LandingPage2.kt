@@ -29,6 +29,7 @@ import compose_example.composeapp.generated.resources.software_development
 import compose_example.composeapp.generated.resources.web_development
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import utils.ImageComponent
 import utils.addBorder
 
 @Composable
@@ -63,7 +64,7 @@ private fun BodyComponent(modifier: Modifier) {
     ) {
         item {
             BodyItem(
-                backgroundImage = Res.drawable.kiosk_adv_1,
+                drawablePath = "drawable/kiosk_adv_1.webp",
                 title = "Self-Service Kiosks",
                 description = "Allow customers to complete tasks independently without staff assistance"
             )
@@ -71,41 +72,41 @@ private fun BodyComponent(modifier: Modifier) {
 
         item {
             BodyItem(
-                backgroundImage = Res.drawable.kiosk_marketting_adv,
                 title = "Digital Store Boards",
-                description = "Display What's in your store on a digital screen"
+                description = "Display What's in your store on a digital screen",
+                drawablePath = "drawable/kiosk_marketting_adv.webp"
             )
         }
 
         item {
             BodyItem(
-                backgroundImage = Res.drawable.kiosk_adv_brand_promotion,
                 title = "Interactive Marketing Kiosks",
-                description = "Let users interact with brand campaigns"
+                description = "Let users interact with brand campaigns",
+                drawablePath = "drawable/kiosk_adv_brand_promotion.webp"
             )
         }
 
         item {
             BodyItem(
-                backgroundImage = Res.drawable.app_development,
                 title = "Mobile App Development",
-                description = "Custom mobile applications tailored to your business needs & with Kiosk Integration"
+                description = "Custom mobile applications tailored to your business needs & with Kiosk Integration",
+                drawablePath = "drawable/app_development.webp"
             )
         }
 
         item {
             BodyItem(
-                backgroundImage = Res.drawable.web_development,
                 title = "Web & Desktop Applications",
-                description = "From idea to launch — web & desktop applications crafted just for your business"
+                description = "From idea to launch — web & desktop applications crafted just for your business",
+                drawablePath = "drawable/web_development.webp"
             )
         }
 
         item {
             BodyItem(
-                backgroundImage = Res.drawable.software_development,
                 title = "And More ",
-                description = "Beyond kiosks — we craft custom software solutions that scale with your business"
+                description = "Beyond kiosks — we craft custom software solutions that scale with your business",
+                drawablePath = "drawable/software_development.jpg"
             )
         }
     }
@@ -113,7 +114,7 @@ private fun BodyComponent(modifier: Modifier) {
 
 @Composable
 private fun BodyItem(
-    backgroundImage: DrawableResource,
+    drawablePath: String,
     title: String,
     description: String,
 ) {
@@ -123,12 +124,7 @@ private fun BodyItem(
             .addBorder(color = Color.DarkGray)
 
     ) {
-        Image(
-            modifier = Modifier.alpha(0.25f),
-            painter = painterResource(backgroundImage),
-            contentDescription = "Kiosk Retro",
-            contentScale = ContentScale.Crop
-        )
+        ImageComponent(drawablePath = drawablePath, alpha = 0.25f)
 
         Column(
             horizontalAlignment = Alignment.Start,

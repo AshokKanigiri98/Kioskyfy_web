@@ -14,15 +14,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import compose_example.composeapp.generated.resources.Res
-import compose_example.composeapp.generated.resources.kiosk_retro
 import compose_example.composeapp.generated.resources.logo_black
 import org.jetbrains.compose.resources.painterResource
+import utils.ImageComponent
 
 @Composable
 internal fun LandingPage1() {
@@ -54,14 +52,8 @@ private fun BodyComponent(modifier: Modifier) {
         color = Color.Black
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
-            Image(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .alpha(0.15f),
-                painter = painterResource(Res.drawable.kiosk_retro),
-                contentDescription = "Kiosk Retro",
-                contentScale = ContentScale.Crop // <-- important: stretch/cover
-            )
+
+            ImageComponent(drawablePath = "drawable/kiosk_retro.webp", alpha = 0.3f)
 
             Box(
                 modifier = Modifier

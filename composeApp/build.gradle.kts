@@ -60,6 +60,8 @@ kotlin {
             implementation(compose.components.resources)
             implementation("media.kamel:kamel-image-default:1.0.7")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2") // cross-platform
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
 
         }
     }

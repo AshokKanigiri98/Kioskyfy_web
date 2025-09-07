@@ -12,7 +12,7 @@ fun getHeight(): Dp {
     val width = with(density) { window.innerWidth.toDp() }
     val height = with(density) { window.innerHeight.toDp() }
 
-    return if (width < 800.dp) {
+    return if (width < 700.dp) {
         350.dp
     } else {
         height

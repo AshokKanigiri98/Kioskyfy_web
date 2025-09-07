@@ -59,7 +59,7 @@ private fun BodyComponent(modifier: Modifier) {
             ImageComponent(
                 drawablePath = "drawable/kiosk_retro.webp",
                 alpha = 0.2f,
-                modifier = Modifier.cinematicAnimation(600)
+                modifier = Modifier.cinematicAnimation(200)
             )
 
             Box(

@@ -20,7 +20,7 @@ fun PageTitleComponent(title: String, modifier: Modifier = Modifier.fillMaxWidth
             brush = AppGradients.goldGradient
         ),
         textAlign = TextAlign.Center,
-        fontSize = 28.sp,
+        fontSize = headerTextSize(),
         modifier = modifier
             .cinematicAnimation(500)
     )

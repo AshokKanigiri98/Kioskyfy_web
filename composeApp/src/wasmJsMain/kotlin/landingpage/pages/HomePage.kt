@@ -19,25 +19,27 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import domain.models.HomePage
-import kotlinx.browser.window
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import utils.ImageComponent
 import utils.addBorder
-import utils.getHeight
+import utils.descriptionTextSize
+import utils.headerTextSize
+import utils.isMobile
 import utils.safeSize
 
 @Composable
-internal fun HomePage(homePage: HomePage) {
+internal fun HomePage(homePage: HomePage, isMobile: Boolean) {
     Column(
         modifier = Modifier.background(color = Color.Black)
             .safeSize()
-            .padding(10.dp)
+            .padding(if(isMobile()) 5.dp else 10.dp)
             .addBorder()
             .padding(10.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+        horizontalAlignment = if (isMobile) Alignment.CenterHorizontally else Alignment.Start
     ) {
-        HeaderComponent(logo = homePage.logo)
+        HeaderComponent(logo = homePage.logo, isMobile)
         BodyComponent(
             modifier = Modifier,
             backgroundImage = homePage.imageRes,
@@ -49,12 +51,15 @@ internal fun HomePage(homePage: HomePage) {
 }
 
 @Composable
-private fun HeaderComponent(logo: DrawableResource) {
+private fun HeaderComponent(logo: DrawableResource, isMobile: Boolean) {
     Image(
         painterResource(logo),
         contentDescription = "Kotlin Logo",
         modifier = Modifier
-            .size(height = 100.dp, width = 300.dp)
+            .size(
+                height = if (isMobile) 75.dp else 100.dp,
+                width = if (isMobile) 200.dp else 300.dp
+            )
             .cinematicAnimation(800)
     )
 }
@@ -66,11 +71,14 @@ private fun BodyComponent(
     title: String,
     description: String,
 ) {
-    Box(modifier = modifier.background(color = Color.Black), contentAlignment = Alignment.Center) {
+    Box(
+        modifier = modifier.background(color = Color.Black),
+        contentAlignment = Alignment.Center
+    ) {
 
         ImageComponent(
             drawablePath = backgroundImage,
-            alpha = 0.2f,
+            alpha = if(isMobile()) 0.35f else 0.2f,
             modifier = Modifier.cinematicAnimation(200)
         )
 
@@ -85,8 +93,8 @@ private fun BodyComponent(
                 Text(
                     text = title,
                     color = Color.White,
-                    fontSize = 26.sp,
-                    modifier = Modifier.cinematicAnimation(400)
+                    fontSize = headerTextSize(),
+                    modifier = Modifier.cinematicAnimation(400),
                 )
 
                 Spacer(Modifier.height(15.dp))
@@ -94,7 +102,7 @@ private fun BodyComponent(
                 Text(
                     text = description,
                     color = Color.White,
-                    fontSize = 16.sp,
+                    fontSize = descriptionTextSize(),
                     modifier = Modifier.cinematicAnimation(1000)
                 )
             }

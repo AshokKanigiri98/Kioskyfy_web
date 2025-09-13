@@ -8,21 +8,20 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import domain.models.ContactUsPage
-import kotlinx.browser.window
 import utils.ImageComponent
 import utils.PageTitleComponent
 import utils.addBorder
-import utils.getHeight
+import utils.descriptionTextSize
+import utils.headerTextSize
+import utils.isMobile
 import utils.safeSize
 
 @Composable
@@ -56,13 +55,15 @@ private fun BodyComponent(
     description: String,
 ) {
     Box(
-        modifier = modifier.background(color = Color.Black).padding(10.dp).addBorder(),
+        modifier = modifier.background(color = Color.Black)
+            .padding(if (isMobile()) 5.dp else 10.dp)
+            .addBorder(),
         contentAlignment = Alignment.Center
     ) {
 
         ImageComponent(
             drawablePath = backgroundRes,
-            alpha = 0.2f,
+            alpha = if (isMobile()) 0.35f else 0.2f,
             modifier = Modifier.cinematicAnimation(200)
         )
 
@@ -77,7 +78,7 @@ private fun BodyComponent(
                 Text(
                     text = title,
                     color = Color.White,
-                    fontSize = 26.sp,
+                    fontSize = headerTextSize(),
                     modifier = Modifier.cinematicAnimation(600)
                 )
 
@@ -86,7 +87,7 @@ private fun BodyComponent(
                 Text(
                     text = description,
                     color = Color.White,
-                    fontSize = 16.sp,
+                    fontSize = descriptionTextSize(),
                     modifier = Modifier.cinematicAnimation(1000)
                 )
             }

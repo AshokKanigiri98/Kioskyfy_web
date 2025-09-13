@@ -20,6 +20,7 @@ import landingpage.state.LandingPageUiState
 import landingpage.viewmodel.LandingViewModel
 import org.koin.compose.koinInject
 import utils.PageTitleComponent
+import utils.isMobile
 
 @Composable
 fun LandingScreen() {
@@ -32,15 +33,19 @@ fun LandingScreen() {
 private fun LandingScreenComponent(state: LandingPageUiState) {
     LazyColumn(modifier = Modifier.fillMaxSize().background(color = Color.Black)) {
         item {
-            HomePage(homePage = state.homePage)
+            HomePage(homePage = state.homePage, isMobile())
         }
 
         item {
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(if(isMobile()) 30.dp else 20.dp))
         }
 
         item {
             HeaderComponent(modifier = Modifier.background(color = Color.Black))
+        }
+
+        item {
+            Spacer(modifier = Modifier.height(if(isMobile()) 20.dp else 15.dp))
         }
 
         items(state.productsPage) { product ->

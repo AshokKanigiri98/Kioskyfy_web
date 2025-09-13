@@ -9,6 +9,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 
+fun isMobile(): Boolean {
+    return (window.innerWidth.dp < 600.dp)
+}
+
 @Composable
 fun getHeight(): Dp {
     val density = LocalDensity.current
@@ -23,8 +27,8 @@ fun getHeight(): Dp {
 }
 
 fun Modifier.safeSize() = this.then(
-    if (window.innerWidth.dp > 600.dp) fillMaxSize()
-    else size(
-        height = 350.dp, width = window.innerWidth.dp
+    if (isMobile()) size(
+        height = 400.dp, width = window.outerWidth.dp
     )
+    else fillMaxSize()
 )

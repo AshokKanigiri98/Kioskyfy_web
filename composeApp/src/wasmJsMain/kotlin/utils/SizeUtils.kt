@@ -1,9 +1,6 @@
 package utils
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -21,10 +18,3 @@ fun getHeight(): Dp {
         height
     }
 }
-
-fun Modifier.safeSize() = this.then(
-    if (window.innerWidth.dp > 600.dp) fillMaxSize()
-    else size(
-        height = 350.dp, width = window.innerWidth.dp
-    )
-)

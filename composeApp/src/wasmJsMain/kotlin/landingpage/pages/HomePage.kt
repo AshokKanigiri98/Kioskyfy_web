@@ -92,7 +92,7 @@ private fun BodyComponent(
                 horizontalAlignment = Alignment.CenterHorizontally // centers horizontally
             ) {
                 Text(
-                    text = "Is Mobile: ${isMobile()} || WIDTH: ${window.innerWidth.dp}",
+                    text = "Is Mobile u1: ${isMobile()} || WIDTH: ${window.innerWidth.dp}",
                     color = Color.White,
                     fontSize = headerTextSize(),
                     modifier = Modifier.cinematicAnimation(400),

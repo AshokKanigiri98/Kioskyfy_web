@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,17 +17,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import domain.models.ContactUsPage
-import kotlinx.browser.window
 import utils.ImageComponent
 import utils.PageTitleComponent
 import utils.addBorder
-import utils.getHeight
+import utils.safeSize
 
 @Composable
 internal fun ContactUsScreen(contactUsPage: ContactUsPage) {
     Column(
         modifier = Modifier.background(color = Color.Black)
-            .size(height = getHeight(), width = window.innerWidth.dp),
+            .safeSize(),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

@@ -19,18 +19,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import domain.models.HomePage
-import kotlinx.browser.window
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import utils.ImageComponent
 import utils.addBorder
-import utils.getHeight
+import utils.safeSize
 
 @Composable
 internal fun HomePage(homePage: HomePage) {
     Column(
         modifier = Modifier.background(color = Color.Black)
-            .size(height = getHeight(), width = window.innerWidth.dp)
+            .safeSize()
             .padding(10.dp)
             .addBorder()
             .padding(10.dp),

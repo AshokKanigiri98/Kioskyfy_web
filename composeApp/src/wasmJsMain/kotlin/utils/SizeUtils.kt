@@ -10,7 +10,10 @@ import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 
 fun isMobile(): Boolean {
-    return (window.innerWidth.dp < 1100.dp)
+    val pxWidth = window.innerWidth
+    val density = window.devicePixelRatio // e.g. 2.0 on Retina displays
+    val dpWidth = pxWidth / density
+    return dpWidth < 1000
 }
 
 @Composable

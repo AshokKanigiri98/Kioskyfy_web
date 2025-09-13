@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 
 fun isMobile(): Boolean {
-    return (window.innerWidth.dp < 600.dp)
+    return (window.innerWidth.dp < 1100.dp)
 }
 
 @Composable

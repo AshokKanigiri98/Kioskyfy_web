@@ -13,7 +13,7 @@ fun isMobile(): Boolean {
     val pxWidth = window.innerWidth
     val density = window.devicePixelRatio // e.g. 2.0 on Retina displays
     val dpWidth = pxWidth / density
-    return dpWidth < 1000
+    return dpWidth < 600
 }
 
 @Composable

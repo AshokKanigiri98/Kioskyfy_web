@@ -23,12 +23,13 @@ import utils.ImageComponent
 import utils.PageTitleComponent
 import utils.addBorder
 import utils.getHeight
+import utils.safeSize
 
 @Composable
 internal fun ContactUsScreen(contactUsPage: ContactUsPage) {
     Column(
         modifier = Modifier.background(color = Color.Black)
-            .size(height = getHeight(), width = window.innerWidth.dp),
+            .safeSize(),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

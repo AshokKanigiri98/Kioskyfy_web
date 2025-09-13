@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
 import domain.models.HomePage
+import kotlinx.browser.window
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import utils.ImageComponent
@@ -91,7 +92,7 @@ private fun BodyComponent(
                 horizontalAlignment = Alignment.CenterHorizontally // centers horizontally
             ) {
                 Text(
-                    text = title,
+                    text = "Is Mobile: ${isMobile()} || WIDTH: ${window.innerWidth.dp}",
                     color = Color.White,
                     fontSize = headerTextSize(),
                     modifier = Modifier.cinematicAnimation(400),

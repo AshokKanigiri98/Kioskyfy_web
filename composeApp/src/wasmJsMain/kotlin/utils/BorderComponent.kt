@@ -18,9 +18,5 @@ fun Modifier.addBorder(
 
     return this
         .clip(borderShape)
-        .border(
-            width = if (isMobile()) 0.dp else width,
-            color = if (isMobile()) Color.Black else color,
-            shape = borderShape
-        )
+
 }

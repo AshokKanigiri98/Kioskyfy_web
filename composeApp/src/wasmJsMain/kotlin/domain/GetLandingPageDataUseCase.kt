@@ -37,7 +37,7 @@ class GetHomePageUseCase {
                     logo = Res.drawable.logo_black,
                     title = "From storefront boards to interactive kiosks",
                     description = "We transform your business journey into a seamless digital experience",
-                    imageRes = "drawable/kiosk_retro.png"
+                    imageRes = "https://i.postimg.cc/rwzHBrc2/kiosk-retro.png"
                 )
             )
         }
@@ -52,37 +52,37 @@ class GetAllProductsUseCase {
                     ProductsPage(
                         title = "Self-Service Kiosks",
                         description = "Allow customers to complete tasks independently without staff assistance",
-                        imageRes = "drawable/kiosk_adv_1.webp",
+                        imageRes = "https://i.postimg.cc/rFfbZJ68/kiosk-adv-1.webp",
                         animMillis = 200
                     ),
                     ProductsPage(
                         title = "Digital Store Boards",
                         description = "Display What's in your store on a digital screen",
-                        imageRes = "drawable/kiosk_marketting_adv.webp",
+                        imageRes = "https://i.postimg.cc/P5N7gwHB/kiosk-marketting-adv.webp",
                         animMillis = 200
                     ),
                     ProductsPage(
                         title = "Interactive Marketing Kiosks",
                         description = "Let users interact with brand campaigns",
-                        imageRes = "drawable/kiosk_adv_brand_promotion.webp",
+                        imageRes = "https://i.postimg.cc/RVg8pRrv/kiosk-adv-brand-promotion.webp",
                         animMillis = 200
                     ),
                     ProductsPage(
                         title = "Mobile App Development",
                         description = "Custom mobile applications tailored to your business needs & with Kiosk Integration",
-                        imageRes = "drawable/app_development.jpg",
+                        imageRes = "https://i.postimg.cc/tCBfv50G/app-development.jpg",
                         animMillis = 200,
                     ),
                     ProductsPage(
                         title = "Web & Desktop Applications",
                         description = "From idea to launch — web & desktop applications crafted just for your business",
-                        imageRes = "drawable/web_development.jpg",
+                        imageRes = "https://i.postimg.cc/pLySwFxb/web-development.jpg",
                         animMillis = 200
                     ),
                     ProductsPage(
                         title = "And More",
                         description = "Beyond kiosks — we craft custom software solutions that scale with your business",
-                        imageRes = "drawable/software_development.jpg",
+                        imageRes = "https://i.postimg.cc/FH16MLmt/software-development.jpg",
                         animMillis = 200
                     )
                 )
@@ -98,7 +98,7 @@ class GetContactUsUseCase {
                 ContactUsPage(
                     title = "Loading ...",
                     description = "Our new website is on the way — we’ll be live soon!",
-                    imageRes = "drawable/kiosk_retro.png"
+                    imageRes = "https://i.postimg.cc/rwzHBrc2/kiosk-retro.png"
                 )
             )
         }

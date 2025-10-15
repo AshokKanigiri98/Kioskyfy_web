@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -33,7 +34,8 @@ fun LandingScreen() {
 
 @Composable
 private fun LandingScreenComponent(state: LandingPageUiState) {
-    LazyColumn(modifier = Modifier.fillMaxSize().background(color = Color.Black)) {
+    val listState = rememberLazyListState()
+    LazyColumn(modifier = Modifier.fillMaxSize().background(color = Color.Black), listState) {
         item {
             HomePage(homePage = state.homePage, isMobile())
         }

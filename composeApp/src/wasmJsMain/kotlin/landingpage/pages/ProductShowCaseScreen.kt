@@ -12,14 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import animations.cinematicAnimation
 import domain.models.ProductsPage
 import utils.ImageComponent
 import utils.addBorder
+import utils.default_line_height
 import utils.descriptionTextSize
 import utils.headerTextSize
 import utils.isMobile
+import utils.tile_des_seperator_gap
 
 @Composable
 internal fun ProductShowCaseScreen(product: ProductsPage) {
@@ -58,19 +61,21 @@ private fun BodyItem(
 
         Column(
             horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.spacedBy(15.dp),
+            verticalArrangement = Arrangement.spacedBy(tile_des_seperator_gap.dp),
             modifier = Modifier.padding(25.dp)
         ) {
             Text(
                 text = title,
                 color = Color.White,
                 fontSize = headerTextSize(),
+                style = TextStyle(lineHeight = default_line_height),
                 modifier = Modifier.cinematicAnimation(animMillis + 100)
             )
             Text(
                 text = description,
                 color = Color.White,
                 fontSize = descriptionTextSize(),
+                style = TextStyle(lineHeight = default_line_height),
                 modifier = Modifier.cinematicAnimation(animMillis + 300)
             )
         }

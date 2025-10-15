@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Compose App</title>
-    <script type="application/javascript" src="skiko.js"></script>
-    <script type="application/javascript" src="composeApp.js"></script>
+    <meta charset="UTF-8" />
+    <title>Kioskyfy</title>
+
+    <!-- Proper mobile viewport -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <!-- Optional: app-like appearance on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: #ffffff;
+            touch-action: none;
+        }
+
+        /* Fullscreen, dynamic viewport height */
+        canvas {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100dvh;        /* ✅ auto-adjusts to visible area */
+            display: block;
+            touch-action: none;
+            background-color: #ffffff;
+        }
+
+        /* iOS safe-area fallback (for older browsers) */
+        @supports not (height: 100dvh) {
+            canvas {
+                height: 100vh;
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
 </head>
+
 <body>
+<!-- Compose Canvas Target -->
 <canvas id="ComposeTarget"></canvas>
+
+<!-- WASM runtime scripts -->
+<script type="application/javascript" src="skiko.js"></script>
+<script type="application/javascript" src="composeApp.js"></script>
 </body>
 </html>

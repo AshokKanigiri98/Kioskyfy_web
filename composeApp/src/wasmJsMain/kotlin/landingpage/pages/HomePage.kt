@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import animations.cinematicAnimation
@@ -23,10 +24,12 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import utils.ImageComponent
 import utils.addBorder
+import utils.default_line_height
 import utils.descriptionTextSize
 import utils.headerTextSize
 import utils.isMobile
 import utils.safeSize
+import utils.tile_des_seperator_gap
 
 @Composable
 internal fun HomePage(homePage: HomePage, isMobile: Boolean) {
@@ -57,8 +60,8 @@ private fun HeaderComponent(logo: DrawableResource, isMobile: Boolean) {
         contentDescription = "Kotlin Logo",
         modifier = Modifier
             .size(
-                height = if (isMobile) 75.dp else 100.dp,
-                width = if (isMobile) 200.dp else 300.dp
+                height = if (isMobile) 50.dp else 100.dp,
+                width = if (isMobile) 100.dp else 300.dp
             )
             .cinematicAnimation(800)
     )
@@ -94,14 +97,16 @@ private fun BodyComponent(
                     text = title,
                     color = Color.White,
                     fontSize = headerTextSize(),
+                    style = TextStyle(lineHeight = default_line_height),
                     modifier = Modifier.cinematicAnimation(400),
                 )
 
-                Spacer(Modifier.height(15.dp))
+                Spacer(Modifier.height(tile_des_seperator_gap.dp))
 
                 Text(
                     text = description,
                     color = Color.White,
+                    style = TextStyle(lineHeight = default_line_height),
                     fontSize = descriptionTextSize(),
                     modifier = Modifier.cinematicAnimation(1000)
                 )

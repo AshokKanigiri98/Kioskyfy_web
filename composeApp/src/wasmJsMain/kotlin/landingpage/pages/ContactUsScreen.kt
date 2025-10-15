@@ -13,16 +13,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import animations.cinematicAnimation
 import domain.models.ContactUsPage
 import utils.ImageComponent
 import utils.PageTitleComponent
 import utils.addBorder
+import utils.default_line_height
 import utils.descriptionTextSize
 import utils.headerTextSize
 import utils.isMobile
 import utils.safeSize
+import utils.tile_des_seperator_gap
 
 @Composable
 internal fun ContactUsScreen(contactUsPage: ContactUsPage) {
@@ -79,14 +82,16 @@ private fun BodyComponent(
                     text = title,
                     color = Color.White,
                     fontSize = headerTextSize(),
+                    style = TextStyle(lineHeight = default_line_height),
                     modifier = Modifier.cinematicAnimation(600)
                 )
 
-                Spacer(Modifier.height(15.dp))
+                Spacer(Modifier.height(tile_des_seperator_gap.dp))
 
                 Text(
                     text = description,
                     color = Color.White,
+                    style = TextStyle(lineHeight = default_line_height),
                     fontSize = descriptionTextSize(),
                     modifier = Modifier.cinematicAnimation(1000)
                 )

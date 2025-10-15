@@ -1,5 +1,6 @@
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.CanvasBasedWindow
+import androidx.compose.ui.window.ComposeViewport
 import di.appModule
 import org.koin.core.context.GlobalContext.startKoin
 

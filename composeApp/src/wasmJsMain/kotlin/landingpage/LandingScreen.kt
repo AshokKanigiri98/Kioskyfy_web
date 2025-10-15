@@ -1,21 +1,19 @@
 package landingpage
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import landingpage.pages.ContactUsScreen
 import landingpage.pages.HomePage
 import landingpage.pages.ProductShowCaseScreen
@@ -35,32 +33,39 @@ fun LandingScreen() {
 @Composable
 private fun LandingScreenComponent(state: LandingPageUiState) {
     val listState = rememberLazyListState()
-    LazyColumn(modifier = Modifier.fillMaxSize().background(color = Color.Black), listState) {
-        item {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Black),
+        state = listState,
+        flingBehavior = ScrollableDefaults.flingBehavior(),
+        userScrollEnabled = true
+    ) {
+        item(key = 1) {
             HomePage(homePage = state.homePage, isMobile())
         }
 
-        item {
+        item(key = 2)  {
             Spacer(modifier = Modifier.height(if(isMobile()) 30.dp else 20.dp))
         }
 
-        item {
+        item(key = 3)  {
             HeaderComponent(modifier = Modifier.background(color = Color.Black))
         }
 
-        item {
+        item(key = 4)  {
             Spacer(modifier = Modifier.height(if(isMobile()) 20.dp else 15.dp))
         }
 
-        items(state.productsPage) { product ->
+        items(state.productsPage, key = { it.title }) { product ->
             ProductShowCaseScreen(product)
         }
 
-        item {
+        item(key = 5)  {
             Spacer(modifier = Modifier.height(20.dp))
         }
 
-        item {
+        item(key = 6)  {
             ContactUsScreen(state.contactPage)
         }
     }
